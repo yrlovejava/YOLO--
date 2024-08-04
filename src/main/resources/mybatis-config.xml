@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="logImpl" value="NO_LOGGING"/>
+    </settings>
+    <typeAliases>
+        <package name="book.manage.entity"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development"> <!-- 环境可以有多套-->
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED"> <!--池化技术-->
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <!-- 这个value 'jdbc:mysql://localhost:3306/'这个部分不变 'library换成你自己要用的数据库名字,如果你需要用我的这个项目，就不用改，然后在数据库中执行我给你发的sql文件就行  -->
+                <property name="url" value="jdbc:mysql://localhost:3306/library"/>
+                <!-- 输入自己的账号 -->
+                <property name="username" value="root"/>
+                <!-- 输入自己的密码 -->
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <package name="book.manage.mapper"/>
+    </mappers>
+</configuration>
